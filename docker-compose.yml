@@ -10,7 +10,7 @@ services:
         environment:
             - POSTGRES_PASSWORD=pg01
             - POSTGRES_USER=postgres
-            - POSTGRES_DB=sf
+            - POSTGRES_DB=bus
     php:
         build: .docker/php
         ports:
