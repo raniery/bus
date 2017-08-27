@@ -17,12 +17,8 @@ services:
             - 9000:9000
         depends_on:
             - postgres
-#        environment:
-#            - DB_CONNECTION=pgsql
-#            - DB_HOST=192.168.99.100
-#            - DB_DATABASE=sf
-#            - DB_USERNAME=postgres
-#            - DB_PASSWORD=pg01
+        environment:
+             - PHP_IDE_CONFIG=serverName=localhost
         restart: always
         volumes:
             - .:/var/www/html
