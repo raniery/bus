@@ -39,3 +39,16 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
+
+nelmio_api_doc:
+    routes:
+        path_patterns: # an array of regexps
+            - ^/api
+    documentation:
+        info:
+            title: BUS - Base Única de Sistemas
+            description: This is an awesome app!
+            version: 1.0.0
+            contact:
+                name: API Support
+                email: raniery.rrr@gmail.com

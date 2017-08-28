@@ -16,7 +16,7 @@ RUN apt-get update \
 	&& rm -rf /tmp/* \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
 	&& docker-php-ext-configure intl \
-    && docker-php-ext-install pdo pdo_pgsql pgsql mcrypt pdo_mysql opcache intl
+    && docker-php-ext-install pdo pdo_pgsql pgsql mcrypt pdo_mysql opcache intl zip
 
 # install xdebug
 #RUN pecl install xdebug
@@ -35,6 +35,12 @@ RUN docker-php-ext-enable xdebug \
     && echo "xdebug.remote_connect_back = 1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.idekey = \"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_port = 9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
+RUN php /tmp/composer-setup.php
+RUN php -r "unlink('/tmp/composer-setup.php');"
+RUN cp composer.phar /usr/bin/composer
+RUN chmod +x /usr/bin/composer
 
 EXPOSE 9001
 EXPOSE 9000

@@ -2,6 +2,7 @@ version: '2'
 
 services:
     postgres:
+        container_name: bus_postgres
         build: .docker/postgres
         ports:
             - 5432:5432
@@ -12,6 +13,7 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_DB=bus
     php:
+        container_name: bus_php
         build: .docker/php
         ports:
             - 9000:9000
@@ -23,6 +25,7 @@ services:
         volumes:
             - .:/var/www/html
     web:
+        container_name: bus_web
         build: .docker/web
         ports:
             - 80:80
