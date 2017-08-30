@@ -6,6 +6,7 @@ RUN apt-get update \
 	&& apt-get install -y \
 	libpq-dev \
 	libmcrypt-dev \
+	git \
 	zip \
 	unzip \
 	wget \

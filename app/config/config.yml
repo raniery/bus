@@ -41,7 +41,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: '%database_driver%'
         host: '%database_host%'
         port: '%database_port%'
         dbname: '%database_name%'
@@ -54,11 +54,20 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #path: '%database_path%'
-
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+
+# Doctrine Migrations
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+    organize_migrations: false # Version >=1.2 Possible values are: "BY_YEAR", "BY_YEAR_AND_MONTH", false
 
 # Swiftmailer Configuration
 swiftmailer:

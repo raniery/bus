@@ -9,8 +9,8 @@ services:
         volumes:
             - db_data:/var/lib/postgresql/data
         environment:
-            - POSTGRES_PASSWORD=pg01
-            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=bus
+            - POSTGRES_USER=bus
             - POSTGRES_DB=bus
     php:
         container_name: bus_php
