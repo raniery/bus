@@ -13,10 +13,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new AppBundle\AppBundle(),
         ];
@@ -27,9 +27,11 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Nelmio\ApiDocBundle\NelmioApiDocBundle();
 
+//            $bundles[] = new JMS\DiExtraBundle\JMSDiExtraBundle($this);
+//            $bundles[] = new JMS\AopBundle\JMSAopBundle();
             $bundles[] = new JMS\TranslationBundle\JMSTranslationBundle();
-            $bundles[] = new JMS\DiExtraBundle\JMSDiExtraBundle();
-            $bundles[] = new JMS\AopBundle\JMSAopBundle();
+
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
 
             if ('dev' === $this->getEnvironment()) {
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
