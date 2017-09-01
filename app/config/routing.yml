@@ -1,6 +1,6 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+system:
+    resource: "@SystemBundle/Resources/config/routing.yml"
+    type:        rest
 
 app.swagger_ui:
     resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
@@ -10,3 +10,6 @@ app.swagger:
     path: /api/doc.json
     methods: GET
     defaults: { _controller: nelmio_api_doc.controller.swagger }
+
+api_login_check:
+    path: /api/system/token
