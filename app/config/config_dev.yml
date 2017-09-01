@@ -53,14 +53,14 @@ nelmio_api_doc:
                 name: API Support
                 email: raniery.rrr@gmail.com
 
-jms_translation:
-    configs:
-        app:
-            dirs: ["%kernel.root_dir%/../src/AppBundle/Resources/translations"]
-            output_dir: "%kernel.root_dir%/../src/AppBundle/Resources/translations"
-            ignored_domains: [routes]
-            excluded_names: ["*TestCase.php", "*Test.php"]
-            excluded_dirs: [cache, data, logs]
+#jms_translation:
+#    configs:
+#        app:
+#            dirs: ["%kernel.root_dir%/../src/AppBundle/Resources/translations"]
+#            output_dir: "%kernel.root_dir%/../src/AppBundle/Resources/translations"
+#            ignored_domains: [routes]
+#            excluded_names: ["*TestCase.php", "*Test.php"]
+#            excluded_dirs: [cache, data, logs]
 
 #jms_di_extra:
 #    locations:

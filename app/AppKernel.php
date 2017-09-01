@@ -26,10 +26,9 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Nelmio\ApiDocBundle\NelmioApiDocBundle();
-
+//            $bundles[] = new JMS\TranslationBundle\JMSTranslationBundle();
 //            $bundles[] = new JMS\DiExtraBundle\JMSDiExtraBundle($this);
 //            $bundles[] = new JMS\AopBundle\JMSAopBundle();
-            $bundles[] = new JMS\TranslationBundle\JMSTranslationBundle();
 
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
 
