@@ -23,7 +23,6 @@ class UserController extends FOSRestController
     public function getAction($id)
     {
         $user = $this->userModel->get($id);
-
         return View::create()
             ->setStatusCode(Response::HTTP_OK)
             ->setData($user);

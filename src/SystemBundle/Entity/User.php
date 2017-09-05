@@ -3,30 +3,24 @@
 namespace SystemBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Users
  *
+ * @ORM\Entity
  * @ORM\Table(name="user", schema="system")
  * @ORM\Entity(repositoryClass="SystemBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
+ * @Serializer\ExclusionPolicy("all")
  */
-class User
+class User extends AbstractEntity
 {
-    /**
-     * @var \Ramsey\Uuid\Uuid
-     *
-     * @ORM\Id
-     * @ORM\Column(name="id", type="uuid")
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
-     */
-    private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @Serializer\Expose()
      */
     private $username;
 
@@ -38,73 +32,6 @@ class User
     private $password;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="deleted", type="boolean", nullable=false, options={"default" : false})
-     */
-    private $deleted;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created", type="datetime")
-     */
-    private $created;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated", type="datetime")
-     */
-    private $updated;
-
-    /**
-     * Gets triggered only on insert
-
-     * @ORM\PrePersist
-     */
-    public function onPrePersist()
-    {
-        $this->created = new \DateTime("now");
-    }
-
-    /**
-     * Gets triggered every time on update
-
-     * @ORM\PreUpdate
-     */
-    public function onPreUpdate()
-    {
-        $this->updated = new \DateTime("now");
-    }
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return Users
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
      * @return string
      */
     public function getUsername()
@@ -113,22 +40,14 @@ class User
     }
 
     /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Users
+     * @param string $username
      */
-    public function setPassword($password)
+    public function setUsername($username)
     {
-        $this->password = $password;
-
-        return $this;
+        $this->username = $username;
     }
 
     /**
-     * Get password
-     *
      * @return string
      */
     public function getPassword()
@@ -137,67 +56,12 @@ class User
     }
 
     /**
-     * @return bool
+     * @param string $password
      */
-    public function isDeleted()
+    public function setPassword($password)
     {
-        return $this->deleted;
+        $this->password = $password;
     }
 
-    /**
-     * @param bool $deleted
-     */
-    public function setDeleted($deleted)
-    {
-        $this->deleted = $deleted;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return Users
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     *
-     * @return Users
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
 }
 

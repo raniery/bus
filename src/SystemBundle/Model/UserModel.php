@@ -2,6 +2,7 @@
 
 namespace SystemBundle\Model;
 
+use SystemBundle\Entity\User;
 use SystemBundle\Repository\UserRepository;
 
 class UserModel
@@ -17,6 +18,10 @@ class UserModel
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * @param $id
+     * @return null|User
+     */
     public function get($id)
     {
         return $this->userRepository->find($id);
