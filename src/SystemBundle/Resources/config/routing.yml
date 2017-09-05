@@ -4,8 +4,8 @@ system_user:
     prefix: system/user
     name_prefix: system_user_
 
-system_token:
-    resource: SystemBundle\Controller\TokenController
-    type: rest
-    prefix: system/token
-    name_prefix: system_token_
+#system_token:
+#    resource: SystemBundle\Controller\TokenController
+#    type: rest
+#    prefix: system/token
+#    name_prefix: system_token_
