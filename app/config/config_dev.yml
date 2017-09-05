@@ -43,7 +43,7 @@ monolog:
 nelmio_api_doc:
     routes:
         path_patterns: # an array of regexps
-            - ^/api
+            - ^/system
     documentation:
         info:
             title: BUS - Base Única de Sistemas

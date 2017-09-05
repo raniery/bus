@@ -1,5 +1,11 @@
+system_user:
+    resource: SystemBundle\Controller\UserController
+    type: rest
+    prefix: system/user
+    name_prefix: system_user_
+
 system_token:
     resource: SystemBundle\Controller\TokenController
     type: rest
-    prefix: api/system/token
-    name_prefix: api_system_token_
+    prefix: system/token
+    name_prefix: system_token_

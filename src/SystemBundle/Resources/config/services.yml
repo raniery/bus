@@ -1,1 +1,14 @@
 services:
+
+    # Repositories
+    system_user_repository:
+        class: SystemBundle\Repository\UserRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - SystemBundle\Entity\User
+
+    # Models
+    system_user_model:
+        class: SystemBundle\Model\UserModel
+        arguments:
+            - ['@system_user_repository']
