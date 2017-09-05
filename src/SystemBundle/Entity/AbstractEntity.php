@@ -17,7 +17,7 @@ class AbstractEntity
      * @ORM\Column(name="id", type="uuid")
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
-     * @Serializer\Accessor(getter="getStringId",setter="setId")
+     * @Serializer\Accessor(getter="getStringId", setter="setId")
      */
     private $id;
 
@@ -79,7 +79,8 @@ class AbstractEntity
      */
     public function getStringId()
     {
-        return $this->id->toString();
+        if($this->id)
+            return $this->id->toString();
     }
 
     /**
